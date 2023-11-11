@@ -12,7 +12,7 @@ class Queue{
     dequeue(){
         const item = this.items[this.headIndex];
         delete this.items[this.headIndex];
-        this.headIndex ++ 
+        this.headIndex ++
         return item;
     }
     peek(){
