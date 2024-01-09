@@ -7,8 +7,11 @@
 
 let fs = require('fs');
 let input = fs.readFileSync('/dev/stdin').toString().split('\n');
-
-let arr = input[0].split('\n').map(Number);
+let n = Number(input[0]);
+let arr = [];
+for (let i=1; i<=n; i++){
+    arr.push(Number(input[i]));
+}
 arr.sort(function(a,b){
     return a - b;
 })
@@ -18,3 +21,31 @@ for(let i=0; i<arr.length; i++){
     answer += arr[i] + '\n'
 }
 console.log(answer);
+
+//또 다른 풀이
+function selectionSort(arr){ //선택 정렬 함수
+    for(let i=0; i<arr.length; i++){
+        let minIndex = i;
+        for(let j = i+1; j<arr.length; j++){
+            if(arr[minIndex] > arr[j]){
+                minIndex = j;
+            }
+        }
+기        arr[i] = arr[minIndex];
+        arr[minIndex] = temp;
+    }
+}
+
+let fs = require('fs');
+let input = fs.readFileSync('/dev/stdin').toString().split('\n');
+let n = Number(input[0]);
+let arr = [];
+for (let i = 1; i<=n; i++){
+    arr.push(Number(input[i]));
+}
+selectionSort(arr);
+let answer = '';
+for (let i=0; i<arr.length; i++){
+    answer += arr[i] + '\n'
+}
+console.log(answer)
